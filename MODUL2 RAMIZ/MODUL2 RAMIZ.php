@@ -1,3 +1,6 @@
+<?php
+$gambargambar = ["gambar1.jpg","gambar2.jpg","gambar3.jpg"];
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -37,9 +40,11 @@
     <!-- END TEXT -->
 
     <!-- TEXT -->
+
     <div class="container bg-dark">
-        <p class="text-light text-center">Find your best deal for your event, here!</p>
-    </div>    
+        <p class="text-light text-center lh-5 pt-2 pb-2">Find your best deal for your event, here!</p>
+    </div>   
+
     <!-- END TEXT -->
     <br />
     <!-- CARD -->   
@@ -59,7 +64,8 @@
                     <li class="text-center fw-bold list-group-item">Covid-19 Protocol</li>
                 </ul>
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary">Book Now</button>
+                    <!-- <button type="button" class="btn btn-primary">Book Now</button> -->
+                    <a href="booking.php?gambargambar=<?= $gambargambar[0] ?> " class="btn btn-primary">Book now</a>
                 </div>
                 </div>
             </div>
@@ -78,7 +84,8 @@
                     <li class="text-center fw-bold list-group-item">Covid-19 Protocol</li>
                 </ul>
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary">Book Now</button>
+                    <!-- <button type="button" class="btn btn-primary">Book Now</button> -->
+                    <a href="booking.php?gambargambar=<?= $gambargambar[1] ?>"class="btn btn-primary">Book now</a>
                 </div>
                 </div>
             </div>
@@ -97,7 +104,7 @@
                     <li class="text-center fw-bold list-group-item" >Covid-19 Protocol</li>
                 </ul>
                 <div class="card-body">
-                    <button type="button" class="btn btn-primary">Book Now</button>
+                    <a href="booking.php?gambargambar=<?= $gambargambar[2] ?>"class="btn btn-primary">Book now</a>
                 </div>
                 </div>
             </div>

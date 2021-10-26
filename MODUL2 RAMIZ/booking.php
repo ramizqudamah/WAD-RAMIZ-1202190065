@@ -1,3 +1,6 @@
+<?php
+$gambargambar = ["gambar1.jpg","gambar2.jpg","gambar3.jpg"];
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -33,76 +36,78 @@
     <br>
     
     <div class="container bg-dark">
-        <p class="text-light text-center">Reserve your revenue now!</p>
+        <p class="text-light text-center lh-5 pt-2 pb-2">Reserve your revenue now!</p>
     </div>  
 
-    <div class="container d-flex justify-content-center align-item-center">
-        <img src="gambar1.jpg" class="card-img-top col-md-6 " alt="...">
-    </div>
-    <br>
-    <!-- FORM -->
-    <section>
-        <div class="container">
-            <form>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                <label for="inputEmail4">Name</label>
-                <input type="email" class="form-control" id="inputEmail4">
-                </div>
-                <div class="form-group col-md-6">
-                <label for="inputPassword4">Event Date</label>
-                <input type="password" class="form-control" id="inputPassword4">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="inputAddress">Start Time</label>
-                <input type="text" class="form-control" id="inputAddress" placeholder="">
-            </div>
-            <div class="form-group">
-                <label for="inputAddress2">Duration (Hours)</label>
-                <input type="text" class="form-control" id="inputAddress2" placeholder="">
-            </div>
-            <div class="form-row">
-                <div class="form-group col-md-6">
-                <label for="inputCity">Building Type</label>
-                <input type="text" class="form-control" id="inputCity">
-                </div>
-                
-                <div class="form-group col-md-6">
-                <label for="inputZip">Phone Number</label>
-                <input type="text" class="form-control" id="inputZip">
-                </div>
-            </div>
-            <div class="form-group">
-                <p> Add Service(s) </p>
-                <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    Catering / $700
-                </label>
-                </div>
-           
-
-                <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    Decoration / $450
-                </label>
-                </div>
-           
-            
-                <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="gridCheck">
-                <label class="form-check-label" for="gridCheck">
-                    Catering / $250
-                </label>
-                </div>
-            </div>
-            <button type="submit" class="btn btn-primary">Book</button>
+    <div class="container-fluid">
+      <div class="row justify-content-center align-content-center">
+          <div class="col-md-4 mt-5">
+            <?php
+                if ($_GET != NULL) {
+                    ?><img src="<?= $_GET["gambargambar"] ?>" width="500px"><?php
+                } else {
+                    ?> <img src="<?=$gambargambar[0]?>" alt="gambar" width="500px"> <?php
+                } 
+            ?>
+          </div>
+        
+          <div class="col-md-5">
+          <form action="mybook.php" method="post">
+              <div class="form-group">
+                  <label for="Name"> Name </label>
+                  <input type="text" class="form-control" name="name">
+              </div>
+              <div class="form-group">
+                  <label for="Event Date"> Event Date </label>
+                  <input type="date" class="form-control" name="eventdate">
+              </div>
+              <div class="form-group">
+                  <label for="Start Time"> Start Time </label>
+                  <input type="time" class="form-control" name="starttime">
+              </div>
+              <div class="form-group">
+                  <label for="Duration(hours)"> Duration(hours) </label>
+                  <input type="number" class="form-control" name="duration" aria-describedby="dur_info" value=0>
+              </div>
+              <div class="form-group">
+                  <label for="Building Type"> Building Type </label>
+                    
+                    <select class="custom-select" name="nama_gedung">
+                    <option value="Gedung Serba Guna">Gedung Serba Guna</option>
+                    <option value="Nusantara Hall">Nusantara Hall</option>
+                    <option value="Garuda Hall">Garuda Hall</option>
+                    </select>
+              </div>
+              <div class="form-group">
+                  <label for="Phone Number"> Phone Number </label>
+                  <input type="number" class="form-control" name="phone_num">
+                  <br>
+              <div class="form-group">
+                  <label for="Add Service(s)"> Add Service(s) </label>
+                  <div class="form-check">
+                      <input class="form-check-input" type="checkbox" name="service[]" value="Room Services"
+                          id="service_check1">
+                      Catering / $700
+                      <br/>
+                      <input class="form-check-input" type="checkbox" name="service[]" value="Breakfast"
+                          id="service_check2">
+                      Decoration / $450
+                      <br/>
+                      <input class="form-check-input" type="checkbox" name="service[]" value="Room Services"
+                          id="service_check1">
+                      Sound System / $250
+                      <br/>
+                  </div>
+              </div>
+              </div>
+              <div class="form-group">
+                  <input type="submit" class="btn btn-primary btn-block" value="Book"></input>
+              </div>
             </form>
-        </div>
-    </section>
-    <!-- END FORM -->
+          </div>
+      </div>
+      </div>
+    </div>    
 
     <!-- FOOTER -->
     <footer align="center">Created by: Ramiz_1202190065</footer>
