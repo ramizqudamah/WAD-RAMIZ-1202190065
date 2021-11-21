@@ -1,0 +1,36 @@
+.tengahweb {
+  margin-top: 15rem;
+  margin-bottom: 5rem;
+}
+
+.bottomweb {
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+}
+
+.tengahwebdata {
+  margin-left: 3rem;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
+  width: 1000px;
+}
+
+.tambahbuku {
+  margin: 3rem;
+  margin-left: 20rem;
+  margin-right: 20rem;
+}
+
+.bacaantambahbuku {
+  margin-bottom: 1rem;
+}
+
+.garistengah {
+  margin-left: 3rem;
+  margin-right: 3rem;
+}
+
+.buttondetailbuku {
+  align-items: center;
+  justify-content: center;
+}
