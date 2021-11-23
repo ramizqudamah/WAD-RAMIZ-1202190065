@@ -16,23 +16,22 @@
   <!-- Konek database tambah buku -->
   <?php
   include('config.php');
-  
+
   if (isset($_POST['submit'])) {
     $judul        = $_POST['judulbuku'];
     $pengarang    = $_POST['penulis'];
     $tahunterbit  = $_POST['tahun'];
     $desk         = $_POST['penjelasan'];
-    $indon        = $_POST['indo';'bahasalain'];
-    $progr        = $_POST['program' ;'web'; 'java'; 'oop' ;'mvc'; 'kalkulus' ;'lainnya'];
-    $gambs        = $_POST['inputgambar'];
+    $indon        = $_POST['indo'];
+    $progr        = $_POST['tag'];
+    $gambs        = $_FILES['inputgambar']['name'];
+    move_uploaded_file($_FILES['inputgambar']['tmp_name'], "Gambar/" . $gambs);
 
-    $insert  = "INSERT INTO buku_table (judul_buku, penulis_buku, tahun_terbit, deskripsi, gambar, tag, bahasa) 
-                    VALUES ('$judul','$pengarang','$tahunterbit', '$desk','$gambs','$progr','$indon') ";
-    $query = mysqli_connect($conn, $insert);
+    $result = mysqli_query($conn, "INSERT INTO buku_table (judul_buku, penulis_buku, tahun_terbit, deskripsi, gambar, tag, bahasa) 
+    VALUES('$judul','$pengarang','$tahunterbit', '$desk','$gambs','$progr','$indon')");
 
     header('Location: Home.php');
   }
-
 
   ?>
   <!-- Konek database tambah buku -->
@@ -53,7 +52,7 @@
   <!-- Navbar -->
 
   <!-- Form Tambah Buku -->
-  <form class="tambahbuku" method="POST">
+  <form class="tambahbuku img-thumbnail" method="POST" enctype="multipart/form-data">
     <h1 class="text-center bacaantambahbuku"> Tambah Data Buku</h1>
     <div class="row mb-3">
       <div class="mb-2">
@@ -83,11 +82,11 @@
       <legend class="col-form-label col-sm-1 pt-0 fw-bold">Bahasa</legend>
       <div class="col-sm-10">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" name="indo" value="option1">
+          <input class="form-check-input" type="radio" name="indo" value="option1">
           <label class="form-check-label" for="inlineRadio1">Indonesia</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="inlineRadioOptions" name="bahasalain" value="option2">
+          <input class="form-check-input" type="radio" name="indo" value="option2">
           <label class="form-check-label" for="inlineRadio2">Lainnya</label>
         </div>
       </div>
@@ -96,31 +95,31 @@
       <legend class="col-form-label col-sm-1 pt-0 fw-bold">Tag</legend>
       <div class="col-sm-10">
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="program" value="option1">
+          <input class="form-check-input" type="checkbox" name="tag[]" value="option1">
           <label class="form-check-label" for="inlineCheckbox1">Pemrograman</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="web" value="option2">
+          <input class="form-check-input" type="checkbox" name="tag[]" value="option2">
           <label class="form-check-label" for="inlineCheckbox2">Website</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="java" value="option2">
+          <input class="form-check-input" type="checkbox" name="tag[]" value="option2">
           <label class="form-check-label" for="inlineCheckbox2">Java</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="oop" value="option2">
+          <input class="form-check-input" type="checkbox" name="tag[]" value="option2">
           <label class="form-check-label" for="inlineCheckbox2">OOP</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="mvc" value="option2">
+          <input class="form-check-input" type="checkbox" name="tag[]" value="option2">
           <label class="form-check-label" for="inlineCheckbox2">MVC</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="kalkulus" value="option2">
+          <input class="form-check-input" type="checkbox" name="tag[]" value="option2">
           <label class="form-check-label" for="inlineCheckbox2">Kalkulus</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="lainnya" value="option2">
+          <input class="form-check-input" type="checkbox" name="tag[]" value="option2">
           <label class="form-check-label" for="inlineCheckbox2">Lainnya</label>
         </div>
       </div>

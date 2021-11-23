@@ -1,16 +1,13 @@
 <?php
-
-$host     = "localhost";
-$user     = "root";
-$name     = "modul3";
+$servername = "localhost";
+$database = "modul3";
+$username = "root";
 $password = "";
 
-$conn = mysqli_connect($host, $user, $password, $name);
-
-if(!$conn) {
-    echo "<script>
-            alert('Gagal Terhubung ke DataBase Modul3')'
-          </script>";
+// untuk tulisan bercetak tebal silakan sesuaikan dengan detail database Anda
+// membuat koneksi
+$conn = mysqli_connect($servername, $username, $password, $database);
+// mengecek koneksi
+if (!$conn) {
+  die("Koneksi gagal: " . mysqli_connect_error());
 }
-
-?>
