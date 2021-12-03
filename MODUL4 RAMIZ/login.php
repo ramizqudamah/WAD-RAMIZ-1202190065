@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-session_start();
 require('konfig.php');
 unset($_SESSION['status']);
 // if(isset($_COOKIE['id']) && isset($_COOKIE['key'])){
