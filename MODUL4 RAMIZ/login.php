@@ -72,7 +72,7 @@ unset($_SESSION['status']);
         $select = "SELECT * FROM user where email ='$email' and password ='$password'";
         $login = mysqli_query($conn, $select);
         $cek = mysqli_num_rows($login);
-        if ($cek > 0) {
+        if ($cek = 0) {
             $data = mysqli_fetch_assoc($login);
             $_SESSION['nama'] = $data['nama'];
             $_SESSION['id'] = $data['id'];

@@ -9,7 +9,7 @@ if (!isset($_SESSION['status'])) {
 }
 
 include('konfig.php');
-$query = ("SELECT * FROM booking WHERE user_id='" . $_SESSION['id'] . "'");
+$query = ("SELECT * FROM booking WHERE user_id='" . $_POST['id'] . "'");
 $test = mysqli_query($conn, $query);
 $rows = [];
 while ($hasil = mysqli_fetch_assoc($test)) {
